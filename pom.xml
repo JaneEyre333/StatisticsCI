@@ -39,7 +39,7 @@
                     <execution>
                         <!-- id (придумываем сами) -->
                         <id>prepare-agent-123456</id>
-                        <!--                        <phase>initialize</phase>-->
+                        <!--<phase>initialize</phase>-->
                         <goals>
                             <!-- какую цель выполняем (берём из справки) -->
                             <goal>prepare-agent</goal>
