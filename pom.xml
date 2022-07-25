@@ -10,6 +10,7 @@
 
     <dependencies>
         <dependency>
+            <!-- junit-jupiter нужен для создания автотестов -->
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.8.2</version>
@@ -20,6 +21,7 @@
     <build>
         <plugins>
             <plugin>
+                <!-- surefire-plugin нужен для работы с Junit 5 (для запуска автотестов) -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
@@ -27,10 +29,39 @@
                     <failIfNoTests>true</failIfNoTests>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <!-- jacoco-maven-plugin нужен для проверки покрытия кода -->
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.5</version>
+                <executions>
+                    <execution>
+                        <!-- id (придумываем сами) -->
+                        <id>prepare-agent-123456</id>
+                        <!--                        <phase>initialize</phase>-->
+                        <goals>
+                            <!-- какую цель выполняем (берём из справки) -->
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <!-- id (придумываем сами) -->
+                        <id>report-098765</id>
+                        <goals>
+                            <!-- какую цель выполняем (берём из справки) -->
+                            <!-- <goal>report</goal>-->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <properties>
+        <!-- прописываем глобально для всех плагинов,
+        что в проекте используется Java 11 версии
+        единая для всего проекта кодировка UTF-8-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
