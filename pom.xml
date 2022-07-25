@@ -47,10 +47,10 @@
                     </execution>
                     <execution>
                         <!-- id (придумываем сами) -->
-                        <id>report-098765</id>
+                        <id>report-1233456786</id>
                         <goals>
                             <!-- какую цель выполняем (берём из справки) -->
-                            <!-- <goal>report</goal>-->
+                             <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
